@@ -1,3 +1,6 @@
+pandas==1.5.3
 prefect==2.7.7
 prefect-gcp[cloud_storage]==0.2.4
 pandas-gbq==0.18.1
+simfin==0.8.4
+python-dotenv==0.21.1

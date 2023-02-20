@@ -1,2 +1,5 @@
 gcp_credentials.json
 venv/
+.env
+**__pycache__/
+data/
