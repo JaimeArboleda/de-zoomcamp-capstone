@@ -3,13 +3,12 @@ from prefect.blocks.system import JSON
 from prefect_gcp import GcpCredentials, GcsBucket
 from prefect_gcp.bigquery import BigQueryWarehouse
 from flows.config import (
-    SIM_FIM_API_KEY_BLOCK,
     GCP_CREDENTIALS_BLOCK,
     BIG_QUERY_BLOCK,
     BUCKET_BLOCK
 )
 
-config = dotenv_values(".env")
+config = dotenv_values(".pyenv")
 for key in config:
     json_block = JSON(value=config[key])
     try:

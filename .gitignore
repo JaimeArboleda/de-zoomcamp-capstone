@@ -1,5 +1,11 @@
 gcp_credentials.json
 venv/
 .env
+.pyenv
 **__pycache__/
-data/
+temp/
+terraform/.terraform
+terraform/.terraform*
+terraform/*backup
+terraform/*tfstate
+notebooks/.ipynb_checkpoints

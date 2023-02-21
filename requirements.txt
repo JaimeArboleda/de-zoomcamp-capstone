@@ -1,5 +1,6 @@
 pandas==1.5.3
 prefect==2.7.7
+prefect-shell==0.1.5
 prefect-gcp[cloud_storage]==0.2.4
 pandas-gbq==0.18.1
 simfin==0.8.4

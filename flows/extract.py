@@ -3,22 +3,24 @@ from prefect import flow, task
 from prefect.blocks.system import JSON
 import pandas as pd
 import io
+import shutil
 from prefect_gcp.cloud_storage import GcsBucket
 from config import BUCKET_BLOCK, SIM_FIM_API_KEY_BLOCK
 import simfin as sf
 
-RAW_PATH = Path(__file__).parent.parent / "data" / "raw"
+TEMP_PATH = Path(__file__).parent.parent / "temp"
 
 @task(log_prints=True)
 def fetch() -> pd.DataFrame:
     sf_api_key = JSON.load(SIM_FIM_API_KEY_BLOCK).value
     sf.set_api_key(sf_api_key)
-    sf.set_data_dir(RAW_PATH)
+    sf.set_data_dir(TEMP_PATH)
     data = {
         "companies": sf.load_companies(market='us'),
         "shareprices": sf.load_shareprices(variant='daily', market='us'),
         "industries": sf.load_industries()
     }
+    shutil.rmtree(TEMP_PATH, ignore_errors=True)
     return data
 
 

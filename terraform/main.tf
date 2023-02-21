@@ -17,7 +17,7 @@ provider "google" {
 
 # Data Lake Bucket
 resource "google_storage_bucket" "data-lake-bucket" {
-  name          = "${local.envs["project-name"]}_${local.envs["bucket-name"]}" # Concatenating DL bucket & Project name for unique naming
+  name          = "${local.envs["project-name"]}-${local.envs["bucket-name"]}" # Concatenating DL bucket & Project name for unique naming
   location      = local.envs["region"]
 
   storage_class = local.envs["storage-class"]

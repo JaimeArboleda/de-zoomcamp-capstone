@@ -1,8 +1,8 @@
 services:
   spark:
-    image: jupyter/pyspark-notebook
+    build: .
+    container_name: spark
     volumes:
-      - "./data:/home/jovyan/data:rw"
       - "./notebooks:/home/jovyan/notebooks:rw"
     ports:
       - "4040:4040"
